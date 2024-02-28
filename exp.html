@@ -263,6 +263,8 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
             }
         }catch(e){
             alert("error:"+e);
+            window.location.href = "exp.html"
+            window.location.reload();
         }
         
     }
@@ -650,7 +652,7 @@ function main() {
     
     if(typeof(glob_uninitialized_oddball) != "undefined"){
         // alert(typeof(glob_uninitialized_oddball));
-        location.href = "exp.html"
+        window.location.href = "exp.html"
         window.location.reload();
         // console.log("1");
         // window.location.reload();
